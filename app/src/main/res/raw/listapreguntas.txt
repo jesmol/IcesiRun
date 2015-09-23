@@ -1,0 +1,20 @@
+¿Cuántos bloques o edificios tiene la Universidad?,12,10,6,Ninguno porque los edificios tienen más de 6 pisos,10
+¿Quién NO es un profesor de matemáticas?,Mauricio Bonilla,Lina Marce,Acevedo,Hendel,Lina Marce
+¿En qué año fue fundada la Universidad?,1979,1999,1989,1969,1979
+¿Qué significa la sigla ICESI?,Instituto Colombiano de Estudios Superiores de INCOLDA,Instituto Colombiano de Estudios Superiores Integrados,Instituto Colombiano con Énfasis en Salud Integrada,No es una sigla - es el nombre de la Universidad,Instituto Colombiano de Estudios Superiores de INCOLDA
+¿Quién descubrió el talento como profesora de Lina Marce?,Hendel Agudelo,Álvaro Pachón,Francisco Piedrahita,Ella misma,Álvaro Pachón
+¿En qué lugar estaba ubicada la primera sede de la Universidad?,En el Centro,Cerca a la CVC,En Pance,Por la avenida Cañas Gordas,En el Centro
+¿En qué año nació el programa de Administración de Empresas en la Universidad?,En 1979,En 2000,En 2014,En 1980,En 1980
+¿Quién fue el primer rector de la Universidad?,Alberto León Betancourt,Francisco Piedrahita,Alfonso Bustamante,Lina Marcela Quintero,Alberto León Betancourt
+¿Cuántos estudiantes aproximadamente tenía la universidad cuando abrió la sede en Pance?,1000,3500,1500,No tenía estudiantes porque no había sede,1500
+¿En qué año ICESI fue reconocida como Universidad?,2014,1989,1997,En el que se fundó - obvio,1997
+Según el Manual de Identidad Visual Institucional de la Universidad ICESI ¿cuál de los siguientes es un símbolo de la Universidad?,El Coliseo nuevo,La Casa SAE,No existe tal manual,Publicaciones ICESI,Publicaciones ICESI
+¿A qué edificio de la Universidad se le apodó “Narnia”?,A la Casa SAE,Al edificio F,Al edificio A por el Samán,A ninguno (qué bobada),A la Casa SAE
+¿Por qué al nuevo edificio se le llamó Edificio E si ya existía hasta el Edificio I?,Porque es obvio que si está junto al D debe ser el E,Porque no se justifica ponerle H si no está cerca al F,A quién le importa; se llama así y punto,Porque ya estaba planificado desde hace muchos años,Porque ya estaba planificado desde hace muchos años
+¿Quién es Álvaro Pachón?,El director de TICs,El director del programa de Ingeniería Telemática,Un profesor de Matemáticas,El director de Matemáticas,El director de TIC’s
+¿Cómo se llama el rector de la Universidad?,Francisco Piedrahita,Armando Piedrahita,Gustavo Piedrahita,Carlos Piedrahita,Francisco Piedrahita
+¿Por qué en las cocinetas de cada departamento ya no se sirve café en vasos desechables?,Seguramente para protegerlo de los estudiantes,Porque son muy costosos,Porque producirlos contamina el medio ambiente,Yo que sé (no tomo café),Seguramente para protegerlo de los estudiantes
+¿En qué piso del edificio C se encuentra el cubículo de impresiones?,4,5,1,3,3
+¿En qué edificio se encuentra ubicada la facultad de Ciencias Sociales?,Edificio F,Edificio A,Edificio C,No existe tal facultad,Edificio A
+¿En que año se graduó la primera promoción del programa de Música Clásica?,2005,1990,Ese programa no existe,2001,Ese programa no existe
+¿Cuál de los siguientes NO es un profesor tiempo completo?,Jesús Molina,Juan Manuel Madrid,Hendel Yaker,Gonzalo Llano,Jesús Molina
