@@ -2,15 +2,15 @@ package apps.icesirun;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
 
 
 public class Final extends Activity implements OnClickListener {
@@ -22,6 +22,8 @@ public class Final extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_final);
         Intent intent = getIntent();
         resultado = intent.getStringExtra(Preguntas.RESULTADO);
@@ -29,13 +31,14 @@ public class Final extends Activity implements OnClickListener {
         Button botonVolverJugar = (Button)findViewById(R.id.btnVolverJugar);
         botonVolverJugar.setVisibility(View.INVISIBLE);
 
-        if (resultado.equals("Has ganado!")){
+        if (resultado.equals(getResources().getString(R.string.ganador))) {
             RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
             layout.setBackgroundResource(R.mipmap.ganaste);
             botonVolverJugar.setVisibility(View.VISIBLE);
         }else {
             TextView texto = (TextView)findViewById(R.id.textoFinal);
-            texto.setText(resultado);
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
+            layout.setBackgroundResource(R.mipmap.perdiste);
             botonVolverJugar.setVisibility(View.VISIBLE);
         }
         botonVolverJugar.setOnClickListener(this);
@@ -68,5 +71,10 @@ public class Final extends Activity implements OnClickListener {
 
         Intent opciones = new Intent(this,Opciones.class);
         startActivity(opciones);
+    }
+
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

@@ -6,4 +6,12 @@
     <string name="title_activity_opciones">Opciones</string>
     <string name="title_activity_preguntas">Preguntas</string>
     <string name="title_activity_final">Final</string>
+    <string name="ganador">¡Has ganado!</string>
+    <string name="muerto">¡Has perdido todas las vidas!</string>
+    <string name="incorrecta">INCORRECTA</string>
+    <string name="correcta">CORRECTA</string>
+    <string name="error_pregunta">Ups Ha ocurrido un error al buscar la pregunta</string>
+    <string name="error_ejecucion">Ups Error de ejecución</string>
+    <string name="nivel1">Nivel1</string>
+
 </resources>

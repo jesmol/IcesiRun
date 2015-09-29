@@ -2,13 +2,13 @@ package apps.icesirun;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class Opciones extends Activity implements OnClickListener {
 
@@ -20,6 +20,7 @@ public class Opciones extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_opciones);
         botonNivel1 = (Button)findViewById(R.id.nivel1);
         botonNivel1.setOnClickListener(this);
@@ -52,5 +53,10 @@ public class Opciones extends Activity implements OnClickListener {
         Intent preguntas = new Intent(this,Preguntas.class);
         preguntas.putExtra(NIVEL,"Nivel1");
         startActivity(preguntas);
+    }
+
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

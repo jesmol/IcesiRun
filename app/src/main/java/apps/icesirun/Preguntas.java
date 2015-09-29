@@ -3,6 +3,8 @@ package apps.icesirun;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,29 +23,39 @@ public class Preguntas extends Activity {
 
     public final static String RESULTADO = "apps.icesirun.result";
 
-
     private ArrayList<Integer> preguntasHechas1;
     private int preguntasCorrectas, numeroVidas, preguntasRealizadas;
+    private TextView tvPregunta;
+    private String fuente;
+    private Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_preguntas);
         Intent intent = getIntent();
         String nivel = intent.getStringExtra(Opciones.NIVEL);
+        fuente = "theunseen.ttf";
         preguntasCorrectas = 0;
         numeroVidas = 3;
         preguntasHechas1 = new ArrayList<Integer>();
-        if (nivel.equals("Nivel1")) {
-            leerPreguntas("Nivel1");
+
+        if (nivel.equals(getResources().getString(R.string.nivel1))) {
+            leerPreguntas(getResources().getString(R.string.nivel1));
         }
+
+        Typeface font = Typeface.createFromAsset(getAssets(), fuente);
+        tvPregunta.setTypeface(font);
+
+        hiloTiempo();
     }
 
     public void leerPreguntas(String nivel) {
 
-        if (nivel.equals("Nivel1")) {
+        if (nivel.equals(getResources().getString(R.string.nivel1))) {
             Random rnd = new Random();
-            int numeroPregunta = rnd.nextInt(20 - 1 + 1) + 1;
+            int numeroPregunta = rnd.nextInt(37 - 1 + 1) + 1;
             System.out.println("Numero Pregunta" + numeroPregunta);
 
             boolean hecha = false;
@@ -53,7 +65,7 @@ public class Preguntas extends Activity {
             System.out.println(hecha);
 
             if (hecha) {
-                leerPreguntas("Nivel1");
+                leerPreguntas(getResources().getString(R.string.nivel1));
             } else {
                 try {
                     InputStream fraw = getResources().openRawResource(R.raw.listapreguntas);
@@ -70,16 +82,33 @@ public class Preguntas extends Activity {
                     System.out.println("Numero linea " + contadorLinea);
                     System.out.println("La linea es " + linea);
                     String[] infoPregunta = linea.split(",");
+
                     String textoPregunta = infoPregunta[0];
-                    String textoOpcion1 = infoPregunta[1];
-                    String textoOpcion2 = infoPregunta[2];
-                    String textoOpcion3 = infoPregunta[3];
-                    String textoOpcion4 = infoPregunta[4];
-                    TextView tvPregunta = (TextView) findViewById(R.id.textoPregunta);
+
+                    Random reordenar = new Random();
+                    int[] numeros = {1, 2, 3, 4};
+
+                    for (int i = 0; i < numeros.length; i++) {
+                        numeros[i] = i + 1;
+                    }
+                    for (int i = 0; i < numeros.length; i++) {
+                        int posicionAleatoria = reordenar.nextInt(numeros.length);
+                        int temp = numeros[i];
+                        numeros[i] = numeros[posicionAleatoria];
+                        numeros[posicionAleatoria] = temp;
+                    }
+
+                    String textoOpcion1 = infoPregunta[numeros[0]];
+                    String textoOpcion2 = infoPregunta[numeros[1]];
+                    String textoOpcion3 = infoPregunta[numeros[2]];
+                    String textoOpcion4 = infoPregunta[numeros[3]];
+
+                    tvPregunta = (TextView) findViewById(R.id.textoPregunta);
                     tvPregunta.setText(textoPregunta);
                     final String textoOpcionCorrecta = infoPregunta[5];
                     System.out.println("Opcion correcta es " + textoOpcionCorrecta);
                     final Button btOpcion1 = (Button) findViewById(R.id.botonOpcion1);
+                    btOpcion1.setTypeface(Typeface.createFromAsset(getAssets(), fuente));
                     btOpcion1.setText(textoOpcion1);
                     btOpcion1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -88,6 +117,7 @@ public class Preguntas extends Activity {
                         }
                     });
                     final Button btOpcion2 = (Button) findViewById(R.id.botonOpcion2);
+                    btOpcion2.setTypeface(Typeface.createFromAsset(getAssets(), fuente));
                     btOpcion2.setText(textoOpcion2);
                     btOpcion2.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -96,6 +126,7 @@ public class Preguntas extends Activity {
                         }
                     });
                     final Button btOpcion3 = (Button) findViewById(R.id.botonOpcion3);
+                    btOpcion3.setTypeface(Typeface.createFromAsset(getAssets(), fuente));
                     btOpcion3.setText(textoOpcion3);
                     btOpcion3.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -104,6 +135,7 @@ public class Preguntas extends Activity {
                         }
                     });
                     final Button btOpcion4 = (Button) findViewById(R.id.botonOpcion4);
+                    btOpcion4.setTypeface(Typeface.createFromAsset(getAssets(), fuente));
                     btOpcion4.setText(textoOpcion4);
                     btOpcion4.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -112,131 +144,133 @@ public class Preguntas extends Activity {
                         }
                     });
                 } catch (Exception ex) {
-                    new AlertDialog.Builder(Preguntas.this).setTitle("Error de ejecución")
-                            .setMessage("Ha ocurrido un error al buscar la pregunta").show();
+                    new AlertDialog.Builder(Preguntas.this).setTitle(getResources().getString(R.string.error_ejecucion))
+                            .setMessage(getResources().getString(R.string.error_pregunta)).show();
                 }
             }
         }
     }
 
     public void seleccionarRespuesta(Button arg0, String opcionCorrecta) {
+        TextView correcta = (TextView) findViewById(R.id.resultado);
+        correcta.setTypeface(Typeface.createFromAsset(getAssets(), fuente));
         switch (arg0.getId()) {
             case R.id.botonOpcion1:
                 Button btOpcion1 = (Button) findViewById(R.id.botonOpcion1);
                 if (opcionCorrecta.equals(btOpcion1.getText())) {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Correcta");
+                    correcta.setTextColor(getResources().getColor(R.color.negro));
+                    correcta.setText(getResources().getString(R.string.correcta));
                     preguntasCorrectas++;
-                   // TextView preguntasCorrec = (TextView) findViewById(R.id.numeroPreguntasCorrectas);
+                    // TextView preguntasCorrec = (TextView) findViewById(R.id.numeroPreguntasCorrectas);
                     //preguntasCorrec.setText("" + preguntasCorrectas);
-                    leerPreguntas("Nivel1");
+                    leerPreguntas(getResources().getString(R.string.nivel1));
                     refrescarPregunta();
                 } else {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Incorrecta");
+                    correcta.setTextColor(getResources().getColor(R.color.rojo));
+                    correcta.setText(getResources().getString(R.string.incorrecta));
                     numeroVidas--;
                     //TextView vidas = (TextView) findViewById(R.id.vidas);
                     //vidas.setText("" + numeroVidas);
                     refrescarVidas();
                     if (numeroVidas == 0) {
-                        correcta.setText("Has perdido todas las vidas");
+                        correcta.setText(getResources().getString(R.string.muerto));
                         Intent ultimo = new Intent(this,Final.class);
-                        ultimo.putExtra(RESULTADO, "Has perdido todas las vidas");
+                        ultimo.putExtra(RESULTADO, getResources().getString(R.string.muerto));
                         startActivity(ultimo);
                     } else {
-                        leerPreguntas("Nivel1");
+                        leerPreguntas(getResources().getString(R.string.nivel1));
                     }
                 }
                 break;
             case R.id.botonOpcion2:
                 Button btOpcion2 = (Button) findViewById(R.id.botonOpcion2);
                 if (opcionCorrecta.equals(btOpcion2.getText())) {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Correcta");
+                    correcta.setTextColor(getResources().getColor(R.color.negro));
+                    correcta.setText(getResources().getString(R.string.correcta));
                     preguntasCorrectas++;
                     //TextView preguntasCorrec = (TextView) findViewById(R.id.numeroPreguntasCorrectas);
                     //preguntasCorrec.setText("" + preguntasCorrectas);
                     refrescarPregunta();
-                    leerPreguntas("Nivel1");
+                    leerPreguntas(getResources().getString(R.string.nivel1));
                 } else {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Incorrecta");
+                    correcta.setTextColor(getResources().getColor(R.color.rojo));
+                    correcta.setText(getResources().getString(R.string.incorrecta));
                     numeroVidas--;
                     //TextView vidas = (TextView) findViewById(R.id.vidas);
                     //vidas.setText("" + numeroVidas);
                     refrescarVidas();
                     if (numeroVidas == 0) {
-                        correcta.setText("Has perdido todas las vidas");
                         Intent ultimo = new Intent(this,Final.class);
-                        ultimo.putExtra(RESULTADO, "Has perdido todas las vidas");
+                        ultimo.putExtra(RESULTADO, getResources().getString(R.string.muerto));
                         startActivity(ultimo);
                     } else {
-                        leerPreguntas("Nivel1");
+                        leerPreguntas(getResources().getString(R.string.nivel1));
                     }
                 }
                 break;
             case R.id.botonOpcion3:
                 Button btOpcion3 = (Button) findViewById(R.id.botonOpcion3);
                 if (opcionCorrecta.equals(btOpcion3.getText())) {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Correcta");
+                    correcta.setTextColor(getResources().getColor(R.color.negro));
+                    correcta.setText(getResources().getString(R.string.correcta));
                     preguntasCorrectas++;
 //                    TextView preguntasCorrec = (TextView) findViewById(R.id.numeroPreguntasCorrectas);
-  //                  preguntasCorrec.setText("" + preguntasCorrectas);
+                    //                  preguntasCorrec.setText("" + preguntasCorrectas);
                     refrescarPregunta();
-                    leerPreguntas("Nivel1");
+                    leerPreguntas(getResources().getString(R.string.nivel1));
                 } else {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Incorrecta");
+                    correcta.setTextColor(getResources().getColor(R.color.rojo));
+                    correcta.setText(getResources().getString(R.string.incorrecta));
                     numeroVidas--;
                     //TextView vidas = (TextView) findViewById(R.id.vidas);
                     //vidas.setText("" + numeroVidas);
                     refrescarVidas();
                     if (numeroVidas == 0) {
-                        correcta.setText("Has perdido todas las vidas");
                         Intent ultimo = new Intent(this,Final.class);
-                        ultimo.putExtra(RESULTADO, "Has perdido todas las vidas");
+                        ultimo.putExtra(RESULTADO, getResources().getString(R.string.muerto));
                         startActivity(ultimo);
                     } else {
-                        leerPreguntas("Nivel1");
+                        leerPreguntas(getResources().getString(R.string.nivel1));
                     }
                 }
                 break;
             case R.id.botonOpcion4:
                 Button btOpcion4 = (Button) findViewById(R.id.botonOpcion4);
                 if (opcionCorrecta.equals(btOpcion4.getText())) {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Correcta");
+                    correcta.setTextColor(getResources().getColor(R.color.negro));
+                    correcta.setText(getResources().getString(R.string.correcta));
                     preguntasCorrectas++;
                     //TextView preguntasCorrec = (TextView) findViewById(R.id.numeroPreguntasCorrectas);
                     //preguntasCorrec.setText("" + preguntasCorrectas);
                     refrescarPregunta();
-                    leerPreguntas("Nivel1");
+                    leerPreguntas(getResources().getString(R.string.nivel1));
                 } else {
-                    TextView correcta = (TextView) findViewById(R.id.resultado);
-                    correcta.setText("Incorrecta");
+                    correcta.setTextColor(getResources().getColor(R.color.rojo));
+                    correcta.setText(getResources().getString(R.string.incorrecta));
                     numeroVidas--;
-          //          TextView vidas = (TextView) findViewById(R.id.vidas);
-            //        vidas.setText("" + numeroVidas);
+                    //          TextView vidas = (TextView) findViewById(R.id.vidas);
+                    //        vidas.setText("" + numeroVidas);
                     refrescarVidas();
                     if (numeroVidas == 0) {
-                        correcta.setText("Has perdido todas las vidas");
+                        correcta.setText(getResources().getString(R.string.muerto));
                         Intent ultimo = new Intent(this,Final.class);
-                        ultimo.putExtra(RESULTADO, "Has perdido todas las vidas");
+                        ultimo.putExtra(RESULTADO, getResources().getString(R.string.muerto));
                         startActivity(ultimo);
                     } else {
-                        leerPreguntas("Nivel1");
+                        leerPreguntas(getResources().getString(R.string.nivel1));
                     }
                 }
                 break;
+
+
         }
 
         preguntasRealizadas++;
+
         if (preguntasCorrectas == 5) {
-            TextView correcta = (TextView) findViewById(R.id.resultado);
-            correcta.setText("Has ganado!");
+            correcta.setText(getResources().getString(R.string.ganador));
             Intent ultimo = new Intent(this,Final.class);
-            ultimo.putExtra(RESULTADO, "Has ganado!");
+            ultimo.putExtra(RESULTADO, getResources().getString(R.string.ganador));
             startActivity(ultimo);
         }
 
@@ -293,6 +327,57 @@ public class Preguntas extends Activity {
         }else if (preguntasCorrectas==5){
             numeroPreg.setBackgroundResource(R.mipmap.pgtacinco);
         }
+    }
 
+    public void hiloTiempo() {
+
+        thread = new Thread() {
+            @Override
+            public void run() {
+                synchronized (this) {
+                    runOnUiThread(new Runnable() {
+                        TextView segundos = (TextView) findViewById(R.id.segundos);
+                        int contador = 30;
+
+                        @Override
+                        public void run() {
+                            while (!segundos.getText().equals("0")) {
+
+                                try {
+                                    segundos.setText("" + contador--);
+                                    Thread.sleep(500);
+
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        };
+
+       /* runOnUiThread(new Runnable() {
+            TextView segundos = (TextView) findViewById(R.id.segundos);
+            int contador = 30;
+
+            @Override
+            public void run() {
+
+                while(!segundos.getText().equals("0")) {
+                    try {
+                        segundos.setText("" + contador--);
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });*/
+    }
+
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

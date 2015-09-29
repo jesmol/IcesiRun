@@ -1,6 +1,6 @@
-¿Cuántos bloques o edificios tiene la Universidad?,12,10,6,Ninguno porque los edificios tienen más de 6 pisos,10
+¿Cuántos bloques o edificios tiene la Universidad?,9,Más de 10,6,Ninguno porque los edificios tienen más de 6 pisos,Más de 10
 ¿Quién NO es un profesor de matemáticas?,Mauricio Bonilla,Lina Marce,Acevedo,Hendel,Lina Marce
-¿En qué año fue fundada la Universidad?,1979,1999,1989,1969,1979
+¿En qué año fue fundada ICESI?,1979,1999,1989,1969,1979
 ¿Qué significa la sigla ICESI?,Instituto Colombiano de Estudios Superiores de INCOLDA,Instituto Colombiano de Estudios Superiores Integrados,Instituto Colombiano con Énfasis en Salud Integrada,No es una sigla - es el nombre de la Universidad,Instituto Colombiano de Estudios Superiores de INCOLDA
 ¿Quién descubrió el talento como profesora de Lina Marce?,Hendel Agudelo,Álvaro Pachón,Francisco Piedrahita,Ella misma,Álvaro Pachón
 ¿En qué lugar estaba ubicada la primera sede de la Universidad?,En el Centro,Cerca a la CVC,En Pance,Por la avenida Cañas Gordas,En el Centro
@@ -10,11 +10,28 @@
 ¿En qué año ICESI fue reconocida como Universidad?,2014,1989,1997,En el que se fundó - obvio,1997
 Según el Manual de Identidad Visual Institucional de la Universidad ICESI ¿cuál de los siguientes es un símbolo de la Universidad?,El Coliseo nuevo,La Casa SAE,No existe tal manual,Publicaciones ICESI,Publicaciones ICESI
 ¿A qué edificio de la Universidad se le apodó “Narnia”?,A la Casa SAE,Al edificio F,Al edificio A por el Samán,A ninguno (qué bobada),A la Casa SAE
-¿Por qué al nuevo edificio se le llamó Edificio E si ya existía hasta el Edificio I?,Porque es obvio que si está junto al D debe ser el E,Porque no se justifica ponerle H si no está cerca al F,A quién le importa; se llama así y punto,Porque ya estaba planificado desde hace muchos años,Porque ya estaba planificado desde hace muchos años
-¿Quién es Álvaro Pachón?,El director de TICs,El director del programa de Ingeniería Telemática,Un profesor de Matemáticas,El director de Matemáticas,El director de TIC’s
+¿Por qué al nuevo edificio se le llamó Edificio E?,Porque es obvio que si está junto al D debe ser el E,Porque no se justifica ponerle J si no está cerca al H,A quién le importa; se llama así y punto,Porque ya estaba planificado desde hace muchos años,Porque ya estaba planificado desde hace muchos años
+¿Quién es Álvaro Pachón?,El Jefe del Departamento de TICs,El director del programa de Ingeniería Telemática,Un profesor de Matemáticas,El director de Matemáticas,El Jefe del Departamento de TICs
 ¿Cómo se llama el rector de la Universidad?,Francisco Piedrahita,Armando Piedrahita,Gustavo Piedrahita,Carlos Piedrahita,Francisco Piedrahita
 ¿Por qué en las cocinetas de cada departamento ya no se sirve café en vasos desechables?,Seguramente para protegerlo de los estudiantes,Porque son muy costosos,Porque producirlos contamina el medio ambiente,Yo que sé (no tomo café),Seguramente para protegerlo de los estudiantes
 ¿En qué piso del edificio C se encuentra el cubículo de impresiones?,4,5,1,3,3
 ¿En qué edificio se encuentra ubicada la facultad de Ciencias Sociales?,Edificio F,Edificio A,Edificio C,No existe tal facultad,Edificio A
 ¿En que año se graduó la primera promoción del programa de Música Clásica?,2005,1990,Ese programa no existe,2001,Ese programa no existe
 ¿Cuál de los siguientes NO es un profesor tiempo completo?,Jesús Molina,Juan Manuel Madrid,Hendel Yaker,Gonzalo Llano,Jesús Molina
+¿Cuántos profesores dictan el curso Aplicaciones Móviles?,1,2,3,No tiene profesor,2
+¿Qué símbolo tiene la torre de ICESI?,Un reloj que siempre marca las 7:00,El logotipo de la universidad,La representación del Sol,El ojo del dólar,El logotipo de la universidad
+¿Cuál de las siguientes materias es profesionalizante?,COE II,Algebra y Funciones,Aplicaciones Móviles,Fundamentos de Constitución,Aplicaciones Móviles
+¿Cuál NO es una carrera de ICESI?,Ingeniería Telemática,Ingeniería Bioquímica,Antropología,Ingeniería Electrónica,Ingeniería Electrónica
+¿Cuál es la profesión del profesor Andrés Felipe Aguirre?,Ingeniero Industrial,Ni idea (quién es ese),Ingeniero de Sistemas,Sociólogo,Ingeniero de Sistemas
+¿En qué edificio se dictan la mayoría de materias de DMI?,En Narnia,En el F, En el H,En el auditorio Manuelita,En el F
+¿Cuántos pisos tiene la Biblioteca?,4,1,3,2,3
+¿Cuántas canchas de Tennis hay en ICESI?,No tiene canchas de Tennis,2,4 (contando las 2 nuevas y 2 las viejas),5,2
+¿Cuál de las siguientes es una carrera de la universidad?,Sociología,Ingeniería Electrónica,Diseño Gráfico,Ingeniería Mecatrónica,Sociología
+¿Cómo se llama la plataforma e-learning de la universidad?,Joomla,Moodle,WordPress,Java,Moodle
+¿Cuál NO es una cafetería de la universidad?,La Central,La Boquería,Sandwich Cubano,Gratto,La Boquería
+¿Dónde queda el laboratorio de Lógica Digital?,En el L,En el G,En el C,En el D,En el L
+¿Cuál NO es una materia del pénsum Administración de Empresas?,Cálculo de una variable,Cálculo Diferencial,Teoría Microeconómica I,Álgebra y Funciones,Cálculo de una variable
+¿Cuál NO es una carrera de ICESI?,Biología con Concentraciones en Conservación y Biología Molecular/Biotecnología,Licenciatura en Enseñanza del Inglés,Licenciatura en Educación Básica Primaria,Licenciatura en Matemáticas,Licenciatura en Matemáticas
+¿Cuál es una carrera de la universidad?,Licenciatura en Artes y en Tecnologías para la creación,Ingeniería Química,Ingeniería Civil,Diseño Gráfico,Licenciatura en Artes y en Tecnologías para la creación
+¿Cuántos programas de pregrado tiene la universidad?,23,22,21,17,23
+¿Con qué universidad se asoció ICESI para proveer su primer programa de maestría?,EAFIT,La Universidad del Valle,La Universidad de los Andes,ICESI no tiene programas de maestría (¡bobo!),EAFIT
